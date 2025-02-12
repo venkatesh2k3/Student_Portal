@@ -1,6 +1,5 @@
 package com.studentportal.config;
 
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -28,10 +27,10 @@ public class SecurityConfig {
         http.csrf().disable()
             .authorizeHttpRequests(authorize -> authorize
                 .requestMatchers("/auth/login/admin", "/auth/login/student", "/auth/login/employee", "/auth/register").permitAll() // Allow login and register for all
-                .requestMatchers(HttpMethod.POST, "/student/register").hasAuthority("ADMIN") // Allow only admins to register students
+                .requestMatchers(HttpMethod.POST, "/student/register").hasRole("ADMIN") // Allow only admins to register students
                 .anyRequest().authenticated() // Other endpoints need authentication
             )
-            .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class); // Add JWT filter before authentication filter
+            .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class); // Add JWT filter
 
         return http.build();
     }
