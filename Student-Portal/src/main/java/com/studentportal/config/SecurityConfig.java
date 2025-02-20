@@ -26,7 +26,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf().disable()
             .authorizeHttpRequests(authorize -> authorize
-                .requestMatchers("/auth/login/admin", "/auth/login/student", "/auth/login/employee", "/auth/register").permitAll() // Allow login and register for all
+                .requestMatchers("/auth/login/admin", "/auth/login/student", "/auth/login/employee", "/auth/register", "/student/details","api/results/all", "api/results/hallticket/**").permitAll() // Allow login and register for all
                 .requestMatchers(HttpMethod.POST, "/student/register").hasRole("ADMIN") // Allow only admins to register students
                 .anyRequest().authenticated() // Other endpoints need authentication
             )

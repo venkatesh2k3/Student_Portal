@@ -3,6 +3,7 @@ package com.studentportal.controller;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.studentportal.model.Student;
 import com.studentportal.service.AuthService;
 
+@CrossOrigin("http://localhost:4200")
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
@@ -46,8 +48,9 @@ public class AuthController {
     }
 
     // New endpoint to fetch logged-in student's personal details
-    @GetMapping("/student/details")
-    public Student getStudentDetails() {
-        return authService.getStudentPersonalDetails();  // Fetch and return the logged-in student's details
-    }
+    
+//    @GetMapping("/student/details")
+//    public Student getStudentDetails() {
+//        return authService.getStudentPersonalDetails();  // Fetch and return the logged-in student's details
+//    }
 }

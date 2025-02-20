@@ -48,6 +48,13 @@ public class Student {
 		public void setFatherDetails(FatherDetails fatherDetails) {
 			this.fatherDetails = fatherDetails;
 		}
+		private String hallTicket;
+		public String getHallTicket() {
+			return hallTicket;
+		}
+		public void setHallTicket(String hallTicket) {
+			this.hallTicket = hallTicket;
+		}
 		private String studentName;
 	    private String dateOfBirth;
 	    private String gender;
