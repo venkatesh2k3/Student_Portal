@@ -17,7 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.studentportal.model.User;
 import com.studentportal.repo.UserRepository;
 import com.studentportal.util.JwtUtil;
-@CrossOrigin(origins = "http://localhost:4200", allowedHeaders = "*", allowCredentials = "true")
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api/results")
 public class ResultsController {
@@ -53,19 +53,31 @@ public class ResultsController {
 
         throw new RuntimeException("Unauthorized: Admin role required");
     }
-
-    @GetMapping("/all")
-    public ResponseEntity<List<StudentResults>> getAllResults() {
-        List<StudentResults> results = resultsService.getAllResults();
-        return ResponseEntity.ok(results);
-    }
+//
+//    @GetMapping("/all")
+//    public ResponseEntity<List<StudentResults>> getAllResults() {
+//        List<StudentResults> results = resultsService.getAllResults();
+//        return ResponseEntity.ok(results);
+//    }
     
     @GetMapping("/hallticket/{hallTicket}")
     public List<StudentResults> getResultsByHallTicket(@PathVariable String hallTicket) {
         return studentResultsRepository.findByHallTicket(hallTicket);
     }
-    
-   
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/performance/{batch}/{year}/{semester}")
+    public ResponseEntity<StudentPerformance> getStudentPerformance(
+            @PathVariable String batch,
+            @PathVariable String year,
+            @PathVariable String semester,
+            @RequestHeader("Authorization") String token) {
+        
+        String jwtToken = token.startsWith("Bearer ") ? token.substring(7) : token;
+        String hallTicket = jwtUtil.extractUsername(jwtToken);
+
+        StudentPerformance performance = resultsService.calculateStudentPerformance(hallTicket, batch, year, semester);
+        return ResponseEntity.ok(performance);
+    }
     
     
     

@@ -15,9 +15,9 @@ public class Family {
 
     private int numberOfBrothers;
     private int numberOfSisters;
-    private boolean hasSiblingInVIT;
+    private boolean hasSiblingInVikas;
     private String siblingStudyingDetails;
-    private boolean hasSiblingStudiedInVIT;
+    private boolean hasSiblingStudiedInVikas;
     private String siblingStudiedDetails;
 	public Long getId() {
 		return id;
@@ -37,11 +37,11 @@ public class Family {
 	public void setNumberOfSisters(int numberOfSisters) {
 		this.numberOfSisters = numberOfSisters;
 	}
-	public boolean isHasSiblingInVIT() {
-		return hasSiblingInVIT;
+	public boolean isHasSiblingInVikas() {
+		return hasSiblingInVikas;
 	}
-	public void setHasSiblingInVIT(boolean hasSiblingInVIT) {
-		this.hasSiblingInVIT = hasSiblingInVIT;
+	public void setHasSiblingInVikas(boolean hasSiblingInVikas) {
+		this.hasSiblingInVikas = hasSiblingInVikas;
 	}
 	public String getSiblingStudyingDetails() {
 		return siblingStudyingDetails;
@@ -49,11 +49,11 @@ public class Family {
 	public void setSiblingStudyingDetails(String siblingStudyingDetails) {
 		this.siblingStudyingDetails = siblingStudyingDetails;
 	}
-	public boolean isHasSiblingStudiedInVIT() {
-		return hasSiblingStudiedInVIT;
+	public boolean isHasSiblingStudiedInVikas() {
+		return hasSiblingStudiedInVikas;
 	}
-	public void setHasSiblingStudiedInVIT(boolean hasSiblingStudiedInVIT) {
-		this.hasSiblingStudiedInVIT = hasSiblingStudiedInVIT;
+	public void setHasSiblingStudiedInVikas(boolean hasSiblingStudiedInVikas) {
+		this.hasSiblingStudiedInVikas = hasSiblingStudiedInVikas;
 	}
 	public String getSiblingStudiedDetails() {
 		return siblingStudiedDetails;
