@@ -27,8 +27,8 @@ public class SecurityConfig {
         http.csrf().disable()
             .authorizeHttpRequests(authorize -> authorize
                 .requestMatchers("/auth/login/admin", "/auth/login/student", "/auth/login/employee", "/auth/register",
-                		"/student/details","api/results/all", "api/results/hallticket/**",
-                		"api/results/performance/**", "/api/chatbot/ask/**").permitAll() // Allow login and register for all
+                		"/student/details","api/results/all","api/results/upload", "api/results/hallticket/**",
+                		"api/results/performance/**", "/api/chatbot/ask/**","/library/**").permitAll() // Allow login and register for all
                 .requestMatchers(HttpMethod.POST, "/student/register").hasRole("ADMIN") // Allow only admins to register students
                 .anyRequest().authenticated() // Other endpoints need authentication
             )

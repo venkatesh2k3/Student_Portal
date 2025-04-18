@@ -126,7 +126,7 @@ public class ResultsService {
     // ✅ Extracts Full Subject Name
     private String extractSubjectName(String[] parts) {
         StringBuilder subjectName = new StringBuilder();
-        for (int i = 2; i < parts.length - 3; i++) { // Avoid last three columns (Internals, Grade, Credits)
+        for (int i = 3; i < parts.length - 2; i++) { // Avoid last three columns (Internals, Grade, Credits)
             subjectName.append(parts[i]).append(" ");
         }
         return subjectName.toString().trim();
